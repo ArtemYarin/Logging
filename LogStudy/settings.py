@@ -114,16 +114,19 @@ LOGGING = {
         'infofile': {
             'level': 'INFO',
             'filename': 'general.log',
-            'formatter': 'filefmt'
+            'formatter': 'filefmt',
+            'class': 'logging.FileHandler'
         },
         'errorfile': {
             'level': 'ERROR',
             'filename': 'error.log',
-            'formatter': 'errorfilefmt'
+            'formatter': 'errorfilefmt',
+            'class': 'logging.FileHandler'
         },
         'securityfile': {
             'filename': 'security.log',
-            'formatter': 'filefmt'
+            'formatter': 'filefmt',
+            'class': 'logging.FileHandler'
         },
     },
     'loggers': {
@@ -153,7 +156,8 @@ LOGGING = {
             "propagate": True,
         },
         'django.security': {
-            'handlers': ['security_file'],
+            'handlers': ['securityfile'],
+            'level': 'DEBUG',
             'propagate': False,
         },
     }
